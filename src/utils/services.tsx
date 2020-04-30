@@ -24,7 +24,7 @@ class SafeBasedServices implements Services {
     }
     interfaceRepo() { 
         if (!this._interfaceRepo) {
-            this._interfaceRepo = new InterfaceRepo(this._safe) 
+            this._interfaceRepo = new InterfaceRepo(this._safe, this.web3()) 
         }
         return this._interfaceRepo
     }
