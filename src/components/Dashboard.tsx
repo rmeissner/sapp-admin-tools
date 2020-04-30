@@ -10,6 +10,7 @@ import Select from '@material-ui/core/Select'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import ReviewDialog from './ReviewDialog'
+import Divider from '@material-ui/core/Divider';
 import { ProposedTransaction } from './models'
 
 const useStyles = makeStyles((theme) => ({
@@ -135,6 +136,16 @@ const Dashboard: React.FC<Props> = ({ safe, services }) => {
             onDismiss={handleDismiss} 
             onSubmit={handleSubmit} 
             deleteTransaction={deleteTransaction} />
+        
+        <Typography
+            style={{ marginTop: 10 }}
+            color="textSecondary"
+            display="block"
+            variant="caption"
+        >
+          Optional: Contract ABI source
+        </Typography>
+        <Divider />
 
         <TextField 
             style={{ marginTop: 10 }}
@@ -142,6 +153,16 @@ const Dashboard: React.FC<Props> = ({ safe, services }) => {
             label="Contract Address or ABI" 
             variant="outlined" 
             onChange={(e) => handleAddressOrABI(e.target.value)} />
+
+        <Typography
+            style={{ marginTop: 20 }}
+            color="textSecondary"
+            display="block"
+            variant="caption"
+        >
+            Transaction information
+        </Typography>
+        <Divider />
 
         <TextField 
             style={{ marginTop: 10 }}
@@ -186,6 +207,10 @@ const Dashboard: React.FC<Props> = ({ safe, services }) => {
             }
         </>
         }
+            
+        <Divider
+            style={{ marginTop: 10 }} />
+
         <Button 
             style={{ marginTop: 10 }}
             variant="contained" color="primary"
