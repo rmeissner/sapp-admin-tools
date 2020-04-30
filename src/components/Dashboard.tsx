@@ -102,14 +102,17 @@ const Dashboard: React.FC<Props> = ({ safe, services }) => {
         newTxs.splice(inputIndex, 1)
         setTransactions(newTxs)
     }, [transactions])
+
+    const clearTransactions = () => {
+        setInputCache([])
+        setTransactions([])
+        setSelectedMethodIndex(0)
+    }
     
     const sendTransactions = React.useCallback(async () => {
         if (transactions.length == 0) return
         try {
             safe.sendTransactions(transactions.map((d) => d.raw))
-            setInputCache([])
-            setTransactions([])
-            setSelectedMethodIndex(0)
         } catch(e) {
             console.error(e)
         }
