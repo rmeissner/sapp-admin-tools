@@ -1,12 +1,21 @@
+import CircularProgress from '@material-ui/core/CircularProgress'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import SafeProvider from './utils/SafeProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SafeProvider loading={(
+        <>
+          Loading...<br />
+          <CircularProgress />
+        </>
+      )}>
+      <App />
+    </SafeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

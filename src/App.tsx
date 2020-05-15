@@ -1,32 +1,13 @@
-import CircularProgress from '@material-ui/core/CircularProgress'
-import React, { useState, useEffect } from 'react'
-import connectSafe from './utils/safe'
+
+import React, { useState } from 'react'
 import buildServices from './utils/services'
-import logo from './logo.svg'
 import './App.css'
 import Dashboard from './components/Dashboard'
+import { useSafe } from './utils/SafeProvider'
 
 const App = () => {
-  const [safe] = useState(connectSafe());
-  const [services] = useState(buildServices(safe));
-  const [connected, setConnected] = useState(false);
-  useEffect(() => {
-    safe.activate(() => {
-      setConnected(safe.isConnected())
-    })
-  
-    return () => safe.deactivate();
-  }, [safe]);
-  return (
-    <div className="App">
-      {(connected ? <Dashboard safe={safe} services={services} /> : 
-        <>
-          Loading...<br />
-          <CircularProgress />
-        </>
-      )}
-    </div>
-  )
+  const [services] = useState(buildServices(useSafe()));
+  return <Dashboard services={services} />
 }
 
 export default App

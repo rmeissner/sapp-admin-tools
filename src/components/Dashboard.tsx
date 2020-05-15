@@ -1,5 +1,4 @@
 import React from 'react'
-import { Safe } from '../utils/safe'
 import TextField from '@material-ui/core/TextField'
 import { Services } from '../utils/services'
 import { ContractInterface } from '../utils/repositories/interfaceRepository'
@@ -12,6 +11,7 @@ import Typography from '@material-ui/core/Typography'
 import ReviewDialog from './ReviewDialog'
 import Divider from '@material-ui/core/Divider';
 import { ProposedTransaction } from './models'
+import { useSafe } from '../utils/SafeProvider'
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -21,10 +21,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface Props {
-    safe: Safe,
     services: Services
 }
-const Dashboard: React.FC<Props> = ({ safe, services }) => {
+
+const Dashboard: React.FC<Props> = ({ services }) => {
+    const safe = useSafe();
     const classes = useStyles();
     const [reviewing, setReviewing] = React.useState<boolean>(false);
     const [selectedMethodIndex, setSelectedMethodIndex] = React.useState<number>(0);
