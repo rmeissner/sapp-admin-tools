@@ -43,4 +43,5 @@ Create Safe app with typescript support using yarn as a package manager.
 - Install ipfs (https://gist.github.com/MiguelBel/b3b5f711aa8d9362afa5f16e4e972461)
   - `ipfs init`
 - `yarn build`
+- Make sure that the ipfs deamon is running `ipfs deamon`
 - `ipfs add -r build`
