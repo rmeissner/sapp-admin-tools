@@ -1,4 +1,4 @@
-Transaction Builder Safe App
+Admin Tools Safe App
 
 ### Running this project
 ```bash=

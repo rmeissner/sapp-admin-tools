@@ -1,7 +1,7 @@
 {
-  "short_name": "Tx Builder",
-  "name": "Transaction Builder",
-  "description": "A Safe app to compose custom transactions",
+  "short_name": "Admin Tools",
+  "name": "Safe Admin Tools",
+  "description": "A Safe app to manage some admin tools",
   "iconPath": "sapp_logo.svg",
   "icons": [
     {

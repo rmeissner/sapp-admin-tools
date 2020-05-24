@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import SafeProvider from './utils/SafeProvider';
+import DependenciesProvider from './utils/AppDependencies';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,9 @@ ReactDOM.render(
           <CircularProgress />
         </>
       )}>
-      <App />
+        <DependenciesProvider>
+          <App />
+        </DependenciesProvider>
     </SafeProvider>
   </React.StrictMode>,
   document.getElementById('root')
